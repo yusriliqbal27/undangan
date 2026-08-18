@@ -217,7 +217,8 @@
         <td class="nm">${esc(r.nama)}</td>
         <td class="lk"><code>${esc(r.link)}</code></td>
         <td class="ac">
-          <button class="btn btn--sm" data-a="copy" data-i="${i}">Salin</button>
+          <button class="btn btn--sm btn--primary" data-a="pesan" data-i="${i}">Salin Pesan</button>
+          <button class="btn btn--sm" data-a="link" data-i="${i}">Link</button>
           ${r.wa ? `<button class="btn btn--sm wa" data-a="wa" data-i="${i}">WhatsApp</button>` : ""}
         </td></tr>`).join("")}</tbody></table>`;
 
@@ -229,7 +230,8 @@
     const b = e.target.closest("[data-a]");
     if (!b) return;
     const r = rows[Number(b.dataset.i)];
-    if (b.dataset.a === "copy") return copy(r.link, "Link " + r.nama + " tersalin");
+    if (b.dataset.a === "pesan") return copy(pesanUntuk(r), "Pesan untuk " + r.nama + " tersalin");
+    if (b.dataset.a === "link") return copy(r.link, "Link " + r.nama + " tersalin");   
     window.open(`https://wa.me/${r.wa}?text=${encodeURIComponent(pesanUntuk(r))}`, "_blank", "noopener");
   });
 
