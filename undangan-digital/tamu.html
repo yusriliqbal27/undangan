@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generator Link Tamu</title>
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<style>
+  *,*::before,*::after{box-sizing:border-box}*{margin:0}
+  :root{--bg:#F4F5F3;--panel:#fff;--line:#E2E4E0;--text:#22251F;--muted:#71766C;--accent:#6B7F5E;--accent-soft:#EDF1EA}
+  body{font:400 14px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);padding:1.25rem}
+  button,input,textarea,select{font:inherit;color:inherit}
+  button{cursor:pointer;background:none;border:0}
+  .page{max-width:960px;margin:0 auto}
+
+  h1{font-size:1.35rem;font-weight:600;letter-spacing:-.01em;display:flex;align-items:center;gap:.6rem}
+  h1 svg{width:26px;height:26px}
+  .sub{color:var(--muted);font-size:.88rem;margin:.3rem 0 1.5rem}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:1.25rem;margin-bottom:1rem}
+  .card h2{font-size:.95rem;font-weight:600;margin-bottom:.9rem;display:flex;align-items:center;gap:.5rem}
+  .card h2 i{width:20px;height:20px;flex:none;display:grid;place-items:center;border-radius:5px;background:var(--accent);color:#fff;font-size:.7rem;font-style:normal;font-weight:600}
+
+  .row{display:grid;gap:.3rem;margin-bottom:.9rem}
+  .row:last-child{margin-bottom:0}
+  label{font-size:.78rem;font-weight:500;color:var(--muted)}
+  .hint{font-size:.75rem;color:var(--muted);opacity:.9}
+  input[type=text],textarea{width:100%;padding:.6rem .75rem;background:var(--panel);border:1px solid var(--line);border-radius:8px;font-size:.88rem}
+  textarea{resize:vertical;min-height:9rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.85rem;line-height:1.75}
+  :is(input,textarea):focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgb(107 127 94/.14)}
+
+  .btn{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem .9rem;border-radius:8px;font-size:.82rem;font-weight:500;border:1px solid var(--line);background:var(--panel);transition:background-color .15s,border-color .15s}
+  .btn:hover{background:#FAFBF9;border-color:#C9CDC5}
+  .btn--primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn--primary:hover{background:#5C6E51;border-color:#5C6E51}
+  .btn--sm{padding:.32rem .6rem;font-size:.76rem}
+  .btn svg{width:15px;height:15px;flex:none}
+  .bar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+  .bar .sp{flex:1}
+  .count{font-size:.82rem;color:var(--muted)}
+
+  table{width:100%;border-collapse:collapse;font-size:.85rem}
+  th{text-align:left;font-weight:500;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:.5rem .6rem;border-bottom:1px solid var(--line)}
+  td{padding:.55rem .6rem;border-bottom:1px solid #F0F1EE;vertical-align:middle}
+  tr:last-child td{border-bottom:0}
+  td.nm{font-weight:500;white-space:nowrap}
+  td.lk{width:99%}
+  td.lk code{display:block;font-family:ui-monospace,monospace;font-size:.76rem;color:var(--muted);word-break:break-all;line-height:1.5}
+  td.ac{white-space:nowrap;text-align:right}
+  .wa{background:#E7F4EC;border-color:#BFE0CC;color:#1E7B45}
+  .wa:hover{background:#D9EDE1;border-color:#A6D4B8}
+  .scroll{overflow-x:auto;margin:0 -.4rem}
+  .empty{text-align:center;color:var(--muted);font-size:.85rem;padding:2rem 0;font-style:italic}
+
+  .toast{position:fixed;bottom:1.25rem;left:50%;transform:translate(-50%,150%);background:#22251F;color:#fff;padding:.6rem 1.1rem;border-radius:999px;font-size:.82rem;opacity:0;visibility:hidden;transition:transform .35s cubic-bezier(.22,.68,.32,1),opacity .25s,visibility .25s;z-index:50}
+  .toast.on{transform:translate(-50%,0);opacity:1;visibility:visible}
+  .note{background:#FFF8E8;border:1px solid #EFDFB4;color:#6B5626;padding:.7rem .85rem;border-radius:8px;font-size:.8rem;line-height:1.6;margin-bottom:1rem}
+  .note code{background:rgb(0 0 0/.06);padding:.05rem .3rem;border-radius:4px}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1>
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <rect width="64" height="64" rx="14" fill="#6B7F5E"/>
+      <g fill="none" stroke="#D9C08A" stroke-width="3.5" stroke-linejoin="round">
+        <rect x="19" y="19" width="26" height="26"/>
+        <rect x="19" y="19" width="26" height="26" transform="rotate(45 32 32)"/>
+      </g>
+    </svg>
+    Generator Link Tamu
+  </h1>
+  <p class="sub">Bikin link undangan personal untuk tiap tamu, lengkap dengan pesan WhatsApp siap kirim.</p>
+
+  <div class="card">
+    <h2><i>1</i> Alamat Undangan</h2>
+    <div class="row">
+      <label for="base">Link undangan yang sudah online</label>
+      <span class="hint">Contoh: https://namakamu.github.io/undangan/ — kalau masih kosong, alamat halaman ini yang dipakai.</span>
+      <input type="text" id="base" placeholder="https://namakamu.github.io/undangan/">
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><i>2</i> Daftar Tamu</h2>
+    <div class="note">
+      Tulis <b>satu nama per baris</b>. Kalau mau sekalian tombol kirim WhatsApp,
+      tambahkan nomornya setelah tanda koma:<br>
+      <code>Pak Budi Santoso, 628123456789</code>
+    </div>
+    <div class="row">
+      <textarea id="names" spellcheck="false"></textarea>
+    </div>
+    <div class="bar">
+      <button class="btn btn--primary" id="go">Buat Link</button>
+      <span class="sp"></span>
+      <span class="count" id="count"></span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><i>3</i> Hasil</h2>
+    <div class="row">
+      <label for="tpl">Template pesan WhatsApp</label>
+      <span class="hint">Tulis <b>{nama}</b> dan <b>{link}</b> — nanti diganti otomatis untuk tiap tamu.</span>
+      <textarea id="tpl" style="min-height:7rem;font-family:inherit;font-size:.86rem"></textarea>
+    </div>
+    <div class="bar" style="margin-bottom:1rem">
+      <button class="btn" id="copy-all">Salin semua link</button>
+      <button class="btn" id="csv">Download CSV</button>
+    </div>
+    <div class="scroll"><div id="out"><p class="empty">Belum ada link. Isi daftar tamu di atas lalu klik "Buat Link".</p></div></div>
+  </div>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="assets/js/config.js"></script>
+<script>
+(function () {
+  "use strict";
+  const $ = (s) => document.querySelector(s);
+  const C = window.CONFIG || {};
+
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  let rows = [];
+
+  /* Isi nilai awal dari config */
+  $("#base").value = location.origin + location.pathname.replace(/tamu\.html$/, "");
+  $("#tpl").value =
+    (C.footer && C.footer.shareTemplate)
+      ? String(C.footer.shareTemplate).replace(
+          /^(Assalamu'alaikum[^\n]*)/,
+          "$1\n\nKepada Yth. Bapak/Ibu/Saudara/i {nama}")
+      : "Assalamu'alaikum warahmatullahi wabarakatuh\n\n" +
+        "Kepada Yth. Bapak/Ibu/Saudara/i {nama}\n\n" +
+        "Kami mengundang Anda untuk menghadiri acara kami.\n\n" +
+        "Berikut link undangannya:\n{link}\n\nJazaakumullahu khairan.";
+
+  $("#names").placeholder =
+    "Rekan Rekan SD Muhammadiyah 4 Malang\n" +
+    "Pak Budi Santoso, 628123456789\n" +
+    "Keluarga Bapak Hendra\n" +
+    "Bu Siti Aminah, 6285712345678";
+
+  function toast(msg) {
+    const t = $("#toast");
+    t.textContent = msg;
+    t.classList.add("on");
+    clearTimeout(toast._t);
+    toast._t = setTimeout(() => t.classList.remove("on"), 2400);
+  }
+
+  async function copy(text, label) {
+    try { await navigator.clipboard.writeText(text); }
+    catch (e) {
+      const ta = document.createElement("textarea");
+      ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); } catch (e2) {}
+      ta.remove();
+    }
+    toast(label || "Tersalin!");
+  }
+
+  function buildLink(base, nama) {
+    let b = base.trim() || location.origin + location.pathname.replace(/tamu\.html$/, "");
+    if (!/^https?:\/\//i.test(b)) b = "https://" + b;
+    // Buang query/hash lama, lalu pasang ?to=
+    const u = new URL(b, location.href);
+    u.search = "";
+    u.hash = "";
+    let s = u.toString();
+    if (!/\.html?$/i.test(u.pathname) && !s.endsWith("/")) s += "/";
+    return s + "?to=" + encodeURIComponent(nama);
+  }
+
+  // 0812... dan 812... otomatis diubah jadi 62812... supaya link WhatsApp jalan
+  function normalWa(raw) {
+    let d = String(raw || "").replace(/\D/g, "");
+    if (!d) return "";
+    if (d.startsWith("620")) d = "62" + d.slice(3);
+    else if (d.startsWith("0")) d = "62" + d.slice(1);
+    else if (!d.startsWith("62")) d = "62" + d;
+    return d.length >= 10 && d.length <= 15 ? d : "";
+  }
+
+  function parseNames(raw) {
+    return raw.split("\n")
+      .map((l) => l.trim())
+      .filter(Boolean)
+      .map((line) => {
+        const parts = line.split(",");
+        return { nama: parts[0].trim(), wa: parts.length > 1 ? normalWa(parts.slice(1).join("")) : "" };
+      })
+      .filter((r) => r.nama);
+  }
+
+  function pesanUntuk(r) {
+    return $("#tpl").value.replace(/\{nama\}/g, r.nama).replace(/\{link\}/g, r.link);
+  }
+
+  function render() {
+    const out = $("#out");
+    if (!rows.length) {
+      out.innerHTML = '<p class="empty">Belum ada link. Isi daftar tamu di atas lalu klik "Buat Link".</p>';
+      $("#count").textContent = "";
+      return;
+    }
+
+    out.innerHTML = `<table><thead><tr>
+        <th>Nama Tamu</th><th>Link Personal</th><th></th>
+      </tr></thead><tbody>${rows.map((r, i) => `<tr>
+        <td class="nm">${esc(r.nama)}</td>
+        <td class="lk"><code>${esc(r.link)}</code></td>
+        <td class="ac">
+          <button class="btn btn--sm" data-a="copy" data-i="${i}">Salin</button>
+          ${r.wa ? `<button class="btn btn--sm wa" data-a="wa" data-i="${i}">WhatsApp</button>` : ""}
+        </td></tr>`).join("")}</tbody></table>`;
+
+    const withWa = rows.filter((r) => r.wa).length;
+    $("#count").textContent = `${rows.length} tamu` + (withWa ? ` · ${withWa} punya nomor WA` : "");
+  }
+
+  $("#out").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-a]");
+    if (!b) return;
+    const r = rows[Number(b.dataset.i)];
+    if (b.dataset.a === "copy") return copy(r.link, "Link " + r.nama + " tersalin");
+    window.open(`https://wa.me/${r.wa}?text=${encodeURIComponent(pesanUntuk(r))}`, "_blank", "noopener");
+  });
+
+  $("#go").addEventListener("click", () => {
+    const base = $("#base").value;
+    const list = parseNames($("#names").value);
+    if (!list.length) { toast("Daftar tamu masih kosong."); return; }
+    try {
+      rows = list.map((r) => ({ ...r, link: buildLink(base, r.nama) }));
+    } catch (err) {
+      toast("Alamat undangan tidak valid.");
+      return;
+    }
+    render();
+    toast(rows.length + " link dibuat.");
+  });
+
+  $("#copy-all").addEventListener("click", () => {
+    if (!rows.length) { toast("Belum ada link."); return; }
+    copy(rows.map((r) => r.nama + "\n" + r.link).join("\n\n"), "Semua link tersalin");
+  });
+
+  $("#csv").addEventListener("click", () => {
+    if (!rows.length) { toast("Belum ada link."); return; }
+    const q = (s) => '"' + String(s).replace(/"/g, '""') + '"';
+    const csv = "﻿" + ["Nama,Nomor WA,Link,Pesan"].concat(
+      rows.map((r) => [q(r.nama), q(r.wa), q(r.link), q(pesanUntuk(r))].join(","))
+    ).join("\n");
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+    a.download = "daftar-tamu.csv";
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    toast("daftar-tamu.csv terunduh");
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
