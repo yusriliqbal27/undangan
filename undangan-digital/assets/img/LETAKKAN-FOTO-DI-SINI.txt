@@ -1,8 +1,0 @@
-Taruh foto (galeri, foto mempelai, logo bank, gambar preview) di folder ini.
-
-Lalu tulis path-nya di assets/js/config.js, contoh:
-
-  gallery: { images: ["assets/img/foto-1.jpg"] }
-
-Kompres dulu fotonya (misalnya di squoosh.app), target di bawah 300 KB
-per foto supaya undangan tidak berat.
