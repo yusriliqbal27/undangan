@@ -254,7 +254,7 @@ const CONFIG = {
   footer: {
     "shareButton": false,
     "shareButtonText": "Bagikan Undangan",
-    "shareTemplate": "Assalamu'alaikum warahmatullahi wabarakatuh\n\nDengan memohon rahmat dan ridho Allah, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri walimatul 'urs kami.\n\nBerikut link undangan kami:\n{link}\n\nMerupakan suatu kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.\n\nJazaakumullahu khairan.",
+    "shareTemplate": "Assalamu'alaikum warahmatullahi wabarakatuh\n\nDengan memohon rahmat dan ridho Allah, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri Syukuran Pernikahan kami.\n\nInformasi undangan kami dapat diakses pada link berikut:\n{link}\n\nMerupakan suatu kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.\n\nJazaakumullahu khairan.",
     "credit": "Dibuat dengan penuh doa",
     "creditName": "",
     "creditUrl": ""
