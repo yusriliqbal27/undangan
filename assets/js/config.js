@@ -182,7 +182,7 @@ const CONFIG = {
     "enabled": true,
     "title": "Konfirmasi Kehadiran",
     "subtitle": "Mohon konfirmasi kehadiran Bapak/Ibu/Saudara/i agar kami dapat mempersiapkan dengan baik.",
-    "endpoint": "",
+    "endpoint": "https://script.google.com/macros/s/AKfycbwMhd4Fm_0fcOoQFXI0TZqMbQj0KoEtRwC59naG7XuhwCXW4mc--M_oFyMDe7Z6WdaFSg/exec",
     "whatsappFallback": "6285731422416",
     "labels": {
       "name": "Nama",
